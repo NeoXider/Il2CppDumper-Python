@@ -21,6 +21,10 @@ class WebAssembly(Il2Cpp):
     WebAssembly format parser for IL2CPP WebGL binaries.
     """
 
+    @property
+    def _data(self) -> bytes:
+        return self._stream.getvalue()
+
     def __init__(self, data: bytes):
         super().__init__(data)
         self.is_32bit = True  # WASM is 32-bit memory model
